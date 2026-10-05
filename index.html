@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Calendar — Plan Your Time. Own Your Day.</title>
+    <meta
+      name="description"
+      content="A high-end SaaS event calendar application to organize events, manage schedules, and stay ahead of your plans with month view, categories, search, and local storage."
+    />
+    <meta property="og:title" content="Event Calendar — Plan Your Time. Own Your Day." />
+    <meta
+      property="og:description"
+      content="A high-end SaaS event calendar application to organize events, manage schedules, and stay ahead of your plans with month view, categories, search, and local storage."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Google Fonts: Plus Jakarta Sans for clean typography & JetBrains Mono for figures -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <!-- Accessibility Skip Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Sticky Glassmorphism Navbar -->
+    <header class="navbar" id="top-nav">
+      <div class="nav-container">
+        <!-- Brand Wordmark & Icon -->
+        <a href="#home" class="brand-link">
+          <span class="brand-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+          </span>
+          <span class="brand-name">Event Calendar</span>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="nav-menu" id="nav-menu" aria-label="Main Navigation">
+          <a href="#home" class="nav-link active">Home</a>
+          <a href="#calendar-section" class="nav-link">Calendar</a>
+          <a href="#events-section" class="nav-link">Events</a>
+        </nav>
+
+        <!-- Right Action Zone -->
+        <div class="nav-actions">
+          <button class="btn btn-primary" id="open-add-modal-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+            <span>+ Add Event</span>
+          </button>
+
+          <!-- Mobile Hamburger Toggle -->
+          <button class="hamburger-btn" id="mobile-toggle-btn" aria-label="Toggle Navigation Menu" aria-expanded="false">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Dropdown Menu -->
+      <div class="mobile-menu" id="mobile-menu" hidden>
+        <a href="#home" class="mobile-nav-link">Home</a>
+        <a href="#calendar-section" class="mobile-nav-link">Calendar</a>
+        <a href="#events-section" class="mobile-nav-link">Events</a>
+        <button class="btn btn-primary btn-block" id="mobile-add-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+          <span>+ Add Event</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main id="main-content" class="main-wrapper">
+      <!-- Premium SaaS Hero Section -->
+      <section class="hero-section" id="home">
+        <div class="hero-grid">
+          <!-- Hero Left Column: Copy, CTAs, and Metrics -->
+          <div class="hero-left">
+            <div class="hero-header">
+              <h1 class="hero-title">Plan Your Time.<br /><span class="gradient-text">Own Your Day.</span></h1>
+              <p class="hero-tagline">Organize events, manage schedules, and stay ahead of your plans.</p>
+              <p class="hero-description">
+                A sleek, high-performance calendar designed to streamline academic schedules, sprint reviews, team collaboration,
+                and personal milestones. All dates persist seamlessly in your browser storage.
+              </p>
+            </div>
+
+            <!-- Prominent Action Buttons -->
+            <div class="hero-cta-group">
+              <button class="btn btn-primary btn-lg" id="hero-create-btn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+                <span>Add Event</span>
+              </button>
+              <a href="#calendar-section" class="btn btn-secondary btn-lg">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                <span>View Calendar</span>
+              </a>
+            </div>
+
+            <!-- Live Metrics Row -->
+            <div class="metrics-grid">
+              <div class="metric-card">
+                <div class="metric-value tabular-nums" id="stat-total-events">0</div>
+                <div class="metric-label">Total Events</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-value tabular-nums" id="stat-month-events">0</div>
+                <div class="metric-label">This Month</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-value tabular-nums" id="stat-upcoming-events">0</div>
+                <div class="metric-label">Upcoming</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-value tabular-nums" id="stat-categories-count">5</div>
+                <div class="metric-label">Categories</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Right Column: Calendar Preview / Mockup with Ambient Glow -->
+          <div class="hero-right">
+            <!-- Atmospheric Glow Underlay -->
+            <div class="hero-mockup-glow" aria-hidden="true"></div>
+
+            <!-- Calendar Preview Mockup Card -->
+            <div class="calendar-preview-mockup">
+              <!-- Mockup Top Bar -->
+              <div class="mockup-header">
+                <div class="mockup-header-left">
+                  <div class="mockup-dots" aria-hidden="true">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                  <span class="mockup-month-label">October 2026</span>
+                </div>
+                <div class="mockup-status-badge">
+                  <span class="status-pulse-dot" aria-hidden="true"></span>
+                  <span>Live Sync</span>
+                </div>
+              </div>
+
+              <!-- Mini Weekstrip Ribbon -->
+              <div class="mockup-weekstrip">
+                <div class="weekstrip-day">
+                  <span class="ws-label">Mon</span>
+                  <span class="ws-num">5</span>
+                </div>
+                <div class="weekstrip-day">
+                  <span class="ws-label">Tue</span>
+                  <span class="ws-num">6</span>
+                </div>
+                <div class="weekstrip-day">
+                  <span class="ws-label">Wed</span>
+                  <span class="ws-num">7</span>
+                </div>
+                <div class="weekstrip-day active">
+                  <span class="ws-label">Thu</span>
+                  <span class="ws-num">8</span>
+                </div>
+                <div class="weekstrip-day">
+                  <span class="ws-label">Fri</span>
+                  <span class="ws-num">9</span>
+                </div>
+                <div class="weekstrip-day">
+                  <span class="ws-label">Sat</span>
+                  <span class="ws-num">10</span>
+                </div>
+                <div class="weekstrip-day">
+                  <span class="ws-label">Sun</span>
+                  <span class="ws-num">11</span>
+                </div>
+              </div>
+
+              <!-- Agenda Feed Showcase -->
+              <div class="mockup-agenda">
+                <div class="agenda-item agenda-college">
+                  <div class="agenda-time tabular-nums">10:00 AM</div>
+                  <div class="agenda-details">
+                    <div class="agenda-title">College Project Review</div>
+                    <div class="agenda-meta">
+                      <span class="agenda-category-pill">College</span>
+                      <span class="agenda-location">Seminar Hall</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="agenda-item agenda-meeting">
+                  <div class="agenda-time tabular-nums">03:00 PM</div>
+                  <div class="agenda-details">
+                    <div class="agenda-title">Team Meeting</div>
+                    <div class="agenda-meta">
+                      <span class="agenda-category-pill">Meeting</span>
+                      <span class="agenda-location">Google Meet</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="agenda-item agenda-personal">
+                  <div class="agenda-time tabular-nums">06:00 PM</div>
+                  <div class="agenda-details">
+                    <div class="agenda-title">DSA Practice &amp; Portfolio</div>
+                    <div class="agenda-meta">
+                      <span class="agenda-category-pill">Personal</span>
+                      <span class="agenda-location">Central Library</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Mockup Footer Link -->
+              <div class="mockup-footer">
+                <a href="#calendar-section" class="mockup-jump-link">
+                  <span>Explore full interactive calendar</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Calendar Section (Main Visual Focus) -->
+      <section class="calendar-wrapper" id="calendar-section" aria-label="Monthly Calendar View">
+        <!-- Calendar Card -->
+        <div class="calendar-card">
+          <!-- Calendar Control Bar -->
+          <div class="calendar-header">
+            <div class="calendar-title-group">
+              <h2 class="current-month-year" id="month-year-display">October 2026</h2>
+              <button class="btn btn-subtle btn-sm" id="btn-today" title="Jump to Today's Date">Today</button>
+            </div>
+
+            <!-- Month Switcher Controls -->
+            <div class="calendar-controls">
+              <button class="btn-icon" id="btn-prev-month" aria-label="Previous Month" title="Previous Month">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+              </button>
+              <button class="btn-icon" id="btn-next-month" aria-label="Next Month" title="Next Month">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Selected Date Indicator Banner -->
+          <div class="selected-date-banner" id="selected-date-banner">
+            <div class="banner-text">
+              <span class="banner-muted">Viewing Date:</span>
+              <strong id="selected-date-label">All Days in Month</strong>
+            </div>
+            <div class="banner-actions">
+              <button class="btn btn-sm btn-subtle" id="btn-add-on-date" hidden>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+                <span>Add Event on Date</span>
+              </button>
+              <button class="btn-link" id="btn-clear-date-filter" hidden>Show All Days</button>
+            </div>
+          </div>
+
+          <!-- Calendar Grid Table -->
+          <div class="calendar-grid-container">
+            <!-- Day of Week Headers -->
+            <div class="calendar-weekdays" aria-hidden="true">
+              <div class="weekday">Sun</div>
+              <div class="weekday">Mon</div>
+              <div class="weekday">Tue</div>
+              <div class="weekday">Wed</div>
+              <div class="weekday">Thu</div>
+              <div class="weekday">Fri</div>
+              <div class="weekday">Sat</div>
+            </div>
+
+            <!-- Calendar Days Grid (populated dynamically via JS) -->
+            <div class="calendar-days" id="calendar-days" role="grid" aria-label="Month days"></div>
+          </div>
+
+          <!-- Category Legend Bar -->
+          <div class="calendar-legend">
+            <span class="legend-title">Categories:</span>
+            <span class="legend-item"><span class="legend-dot dot-college"></span> College</span>
+            <span class="legend-item"><span class="legend-dot dot-meeting"></span> Meeting</span>
+            <span class="legend-item"><span class="legend-dot dot-birthday"></span> Birthday</span>
+            <span class="legend-item"><span class="legend-dot dot-personal"></span> Personal</span>
+            <span class="legend-item"><span class="legend-dot dot-other"></span> Other</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Search, Filter & Event Management Section -->
+      <section class="events-management-section" id="events-section" aria-label="Event Management">
+        <div class="section-top-bar">
+          <div>
+            <h2 class="section-title">Manage Events</h2>
+            <p class="section-subtitle">Search, filter by category, edit details, or remove scheduled events.</p>
+          </div>
+          <button class="btn btn-primary" id="btn-add-event-secondary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+            <span>New Event</span>
+          </button>
+        </div>
+
+        <!-- Filter & Search Controls Toolbar -->
+        <div class="toolbar-card">
+          <!-- Search Input -->
+          <div class="search-input-wrapper">
+            <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input
+              type="text"
+              id="search-input"
+              class="search-input"
+              placeholder="Search by event title, location, or notes..."
+              aria-label="Search events"
+            />
+            <button class="search-clear-btn" id="search-clear-btn" title="Clear search" hidden>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Category Filter Segmented Tabs -->
+          <div class="filter-controls-row">
+            <div class="category-tabs" id="category-filter-tabs" role="tablist" aria-label="Category Filter">
+              <button class="cat-tab active" data-category="All" role="tab" aria-selected="true">All</button>
+              <button class="cat-tab" data-category="College" role="tab" aria-selected="false">College</button>
+              <button class="cat-tab" data-category="Meeting" role="tab" aria-selected="false">Meeting</button>
+              <button class="cat-tab" data-category="Birthday" role="tab" aria-selected="false">Birthday</button>
+              <button class="cat-tab" data-category="Personal" role="tab" aria-selected="false">Personal</button>
+              <button class="cat-tab" data-category="Other" role="tab" aria-selected="false">Other</button>
+            </div>
+
+            <!-- Time Filter Select Dropdown -->
+            <div class="time-filter-wrapper">
+              <label for="time-filter-select" class="sr-only">Filter by timeframe</label>
+              <select id="time-filter-select" class="select-dropdown">
+                <option value="all">All Dates</option>
+                <option value="upcoming">Upcoming Events</option>
+                <option value="this-month">This Month</option>
+                <option value="past">Past Events</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filter Status & Results Counter -->
+        <div class="results-header">
+          <div class="results-count" id="results-count">Showing 6 events</div>
+          <button class="btn-link" id="btn-reset-all-filters" hidden>Reset all filters</button>
+        </div>
+
+        <!-- Events List / Cards Grid -->
+        <div class="events-grid" id="events-grid-container" aria-live="polite">
+          <!-- Dynamically populated event cards will go here -->
+        </div>
+
+        <!-- Empty State (Shown when no events match) -->
+        <div class="empty-state" id="empty-state" hidden>
+          <div class="empty-state-icon">
+            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+              <line x1="9" y1="14" x2="15" y2="14"></line>
+            </svg>
+          </div>
+          <h3 class="empty-state-title">No events found</h3>
+          <p class="empty-state-description" id="empty-state-desc">
+            No events match your current search query or category filter. Try clearing the filter or add a new event.
+          </p>
+          <div class="empty-state-actions">
+            <button class="btn btn-primary" id="empty-add-event-btn">+ Add Event</button>
+            <button class="btn btn-secondary" id="empty-clear-btn">Clear Filters</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Modal: Add / Edit Event (Centered Glassmorphism) -->
+    <div class="modal-overlay" id="event-modal" aria-hidden="true" role="dialog" aria-labelledby="modal-title">
+      <div class="modal-container">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <div>
+            <h3 class="modal-title" id="modal-title">Add New Event</h3>
+            <p class="modal-subtitle">Fill in the event details below. Required fields are marked *</p>
+          </div>
+          <button class="modal-close-btn" id="modal-close-btn" aria-label="Close modal">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Validation Error Message Banner -->
+        <div class="validation-banner" id="modal-validation-error" hidden>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+          </svg>
+          <span id="validation-error-text">Please correct the highlighted errors.</span>
+        </div>
+
+        <!-- Event Form -->
+        <form id="event-form" novalidate>
+          <input type="hidden" id="event-id-input" value="" />
+
+          <!-- Event Title Field -->
+          <div class="form-group">
+            <label for="event-title-input" class="form-label">Event Title <span class="required-mark">*</span></label>
+            <input
+              type="text"
+              id="event-title-input"
+              class="form-input"
+              placeholder="e.g., Final Year Project Review"
+              required
+              maxlength="100"
+            />
+            <span class="field-error" id="title-error"></span>
+          </div>
+
+          <!-- Date & Category Row -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="event-date-input" class="form-label">Date <span class="required-mark">*</span></label>
+              <input
+                type="date"
+                id="event-date-input"
+                class="form-input"
+                required
+              />
+              <span class="field-error" id="date-error"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="event-category-select" class="form-label">Category</label>
+              <select id="event-category-select" class="form-select">
+                <option value="College">College</option>
+                <option value="Meeting">Meeting</option>
+                <option value="Birthday">Birthday</option>
+                <option value="Personal">Personal</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Start Time & End Time Row -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="event-start-time-input" class="form-label">Start Time</label>
+              <input
+                type="time"
+                id="event-start-time-input"
+                class="form-input"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="event-end-time-input" class="form-label">End Time</label>
+              <input
+                type="time"
+                id="event-end-time-input"
+                class="form-input"
+              />
+              <span class="field-error" id="time-error"></span>
+            </div>
+          </div>
+
+          <!-- Location Field -->
+          <div class="form-group">
+            <label for="event-location-input" class="form-label">Location</label>
+            <div class="input-icon-wrapper">
+              <svg class="input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <input
+                type="text"
+                id="event-location-input"
+                class="form-input with-icon"
+                placeholder="e.g., Seminar Hall B, Google Meet, City Hub"
+                maxlength="100"
+              />
+            </div>
+          </div>
+
+          <!-- Description Field -->
+          <div class="form-group">
+            <label for="event-desc-input" class="form-label">Description</label>
+            <textarea
+              id="event-desc-input"
+              class="form-textarea"
+              rows="3"
+              placeholder="Add key notes, agenda, or guidelines for this event..."
+              maxlength="500"
+            ></textarea>
+          </div>
+
+          <!-- Modal Action Buttons -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" id="modal-cancel-btn">Cancel</button>
+            <button type="submit" class="btn btn-primary" id="modal-submit-btn">Save Event</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modal: Delete Confirmation -->
+    <div class="modal-overlay" id="delete-modal" aria-hidden="true" role="dialog" aria-labelledby="delete-modal-title">
+      <div class="modal-container modal-sm">
+        <div class="delete-icon-wrapper">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F87171" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 6h18"></path>
+            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+            <line x1="10" y1="11" x2="10" y2="17"></line>
+            <line x1="14" y1="11" x2="14" y2="17"></line>
+          </svg>
+        </div>
+        <h3 class="delete-modal-title" id="delete-modal-title">Delete Event?</h3>
+        <p class="delete-modal-text">
+          Are you sure you want to delete <strong id="delete-event-name">this event</strong>? This action cannot be undone.
+        </p>
+        <div class="modal-footer justify-center">
+          <button type="button" class="btn btn-secondary" id="delete-cancel-btn">Cancel</button>
+          <button type="button" class="btn btn-danger" id="delete-confirm-btn">Yes, Delete</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast Notification Element -->
+    <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-container">
+        <div class="footer-left">
+          <div class="footer-brand">Event Calendar</div>
+          <p class="footer-text">Plan your time. Own your day. Built with HTML5, CSS3, and JavaScript.</p>
+        </div>
+        <div class="footer-actions">
+          <button class="btn btn-subtle btn-sm" id="btn-reset-sample-data" title="Reload default sample events">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"></path>
+            </svg>
+            <span>Reset Sample Events</span>
+          </button>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Vanilla JavaScript Module -->
+    <script type="module" src="/src/app.js"></script>
+  </body>
+</html>
